@@ -6,8 +6,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Roda um Comando
-        run: echo $(pwd)
+      - name: Copia os aruivos do repositorio
+        uses: actions/checkout@v4.1.0
 
       - name: Roda outro Comando
         run: echo $(ls)
