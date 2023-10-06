@@ -19,3 +19,9 @@ jobs:
 
       - name: Rodar os testes
         run: pytest libpythonpro/
+
+      - name: Instalar flake8
+        run: pip install flake8
+
+      - name: Rodar o flake8
+        run: flake8
