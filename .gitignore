@@ -15,6 +15,7 @@ downloads/
 eggs/
 .eggs/
 .idea/
+.idea
 bin/
 lib/
 lib64/
@@ -124,6 +125,7 @@ celerybeat.pid
 # Environments
 .env
 .venv/
+.venv
 env/
 venv/
 ENV/
