@@ -43,7 +43,7 @@ def test_qde_de_spam(sessao, usuarios):
 
 
 def test_parametros_de_spam(sessao):
-    usuario = Usuario(nome='Renzo', email='renzo@python.pro.br'),
+    usuario = Usuario(nome='Renzo', email='renzo@python.pro.br')
     sessao.salvar(usuario)
     enviador = EnviadorMock()
     enviador_de_spam = EnviadorDeSpam(sessao, enviador)
@@ -53,8 +53,8 @@ def test_parametros_de_spam(sessao):
         'Confira os módulos fantásticos'
     )
     assert enviador.parametros_de_envio == (
-        'renzo@python.pro.br',
         'luciano@python.pro.br',
+        'renzo@python.pro.br',
         'Curso python pro',
         'Confira os módulos fantásticos'
     )
