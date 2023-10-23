@@ -1,11 +1,28 @@
-from libpythonpro.github_api import buscar_avatar
+from unittest.mock import Mock
+
+import pytest
+
+from libpythonpro import github_api
 
 
-def test_buscar_avatar():
-    url = buscar_avatar('Derick23begindev')
+@pytest.fixture
+def avatar_url(mocker):
+    resp_mock = Mock()
+    url = 'https://avatars.githubusercontent.com/u/3457115?v=4'
+    resp_mock.json.return_value = {
+        'login': 'Derick23begindev', 'id': 137959472,
+        'avatar_url': url
+    }
+    get_mock = mocker.patch('libpythonpro.github_api.requests.get')
+    get_mock.return_value = resp_mock
+    return url
+
+
+def test_buscar_avatar(avatar_url):
+    url = github_api.buscar_avatar('renzon')
+    assert url == avatar_url
+
+
+def test_buscar_avatar_integracao():
+    url = github_api.buscar_avatar('Derick23begindev')
     assert url == 'https://avatars.githubusercontent.com/u/137959472?v=4'
-
-
-def test_buscar_avatar_invalido():
-    url = buscar_avatar('')
-    assert url == 'Usuário não encontrado.'

@@ -9,10 +9,4 @@ def buscar_avatar(usuario):
     """
     url = f'https://api.github.com/users/{usuario}'
     resp = requests.get(url)
-    if 'avatar_url' not in resp.json():
-        return 'Usuário não encontrado.'
     return resp.json()['avatar_url']
-
-
-if __name__ == '__main__':
-    print(buscar_avatar('Derick23begindev'))
