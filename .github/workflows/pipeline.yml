@@ -21,7 +21,7 @@ jobs:
         run: pipenv sync --dev
 
       - name: Rodar os testes
-        run: pytest libpythonpro/ --cov=libpythonpro/
+        run: pipenv run pytest libpythonpro/ --cov=libpythonpro/
 
       - name: Rodar o flake8
         run: flake8
