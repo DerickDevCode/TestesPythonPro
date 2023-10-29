@@ -14,8 +14,11 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: instalar pipenv
+        run: pip install -q pipenv
+
       - name: Instalar dependências
-        run: pip install -q -r requirements-dev.txt
+        run: pipenv sync --dev
 
       - name: Rodar os testes
         run: pytest libpythonpro/ --cov=libpythonpro/
